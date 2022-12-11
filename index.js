@@ -1,8 +1,12 @@
 const express = require("express");
 const app = express();
+const port = 80;
 
-app.get("/", (req, res) => {
-    res.send("hello");
-});
+app.use('/', routes)
+app.use(express.static(path.join(__dirname, '/public')))
 
-app.listen("80");
+app.listen(port, () => {
+    console.log(`app is running on PORT ${port}`)
+})
+
+module.exports = app;
