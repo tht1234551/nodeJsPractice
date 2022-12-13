@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
+const router = require('./src/routes/routes');
 const port = 80;
 
-app.use('/', routes)
-app.use(express.static(path.join(__dirname, '/public')))
+app.use('/', router);
 
 app.listen(port, () => {
     console.log(`app is running on PORT ${port}`)
