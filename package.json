@@ -4,10 +4,10 @@
   "dependencies": {
     "express": "^4.18.2",
     "formidable": "^2.1.1",
-    "fs": "0.0.1-security"
+    "fs": "0.0.1-security",
+    "mysql": "^2.18.1"
   },
   "scripts": {
-    "_comment": "npm start 명령을 치면 script의 start가 작동된다",
     "start": "node index.js"
   }
 }
