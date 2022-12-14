@@ -5,7 +5,6 @@ const port = parseInt(process.env.PORT) || 80;
 const router = require('./routes/routes');
 app.use('/', router);
 
-
 app.listen(port, () => {
     console.log(`app is running on PORT ${port}`)
 })
@@ -17,5 +16,3 @@ app.get((req, res) => {
 const db = require('./db_connection')
 
 module.exports = app;
-
-// nodeboard.kro.kr
