@@ -85,6 +85,8 @@ router.post("/fileupload", (req, res) => {
     });
 });
 
+router.get("/admin", (req, res) => {
+    res.redirect(process.env.DB_ADMIN);
+});
 
 module.exports = router
-
