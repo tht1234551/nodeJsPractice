@@ -9,6 +9,6 @@ app.listen(port, () => {
     console.log(`app is running on PORT ${port}`)
 })
 
-const db = require('./db_connection')
+// const db = require('./db_connection')
 
 module.exports = app;
