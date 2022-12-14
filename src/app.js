@@ -10,7 +10,12 @@ app.listen(port, () => {
     console.log(`app is running on PORT ${port}`)
 })
 
+app.get((req, res) => {
+    res.status(404).send('not found');
+});
+
 const db = require('./db_connection')
 
 module.exports = app;
 
+nodeboard.kro.kr
