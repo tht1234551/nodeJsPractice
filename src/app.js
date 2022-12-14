@@ -18,4 +18,4 @@ const db = require('./db_connection')
 
 module.exports = app;
 
-nodeboard.kro.kr
+// nodeboard.kro.kr
