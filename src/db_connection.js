@@ -1,10 +1,12 @@
 const mysql = require('mysql');
 
 const con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "1q2w3e4r",
-    database: "book"
+    host: process.env.DB_HOST,
+    port: 31617,
+    user: "mariadb",
+    password: "mariadb",
+    database: "db",
+    connectTimeout: 20000
 });
 
 con.connect(function(err) {
