@@ -32,7 +32,7 @@ app.get("/admin", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`app is running on PORT ${port}`);
+  console.log(`[${new Date().toLocaleString()}] app is running on PORT ${port}`);
 });
 
 

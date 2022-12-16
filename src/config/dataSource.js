@@ -5,7 +5,7 @@ const con = mysql.createConnection(config.dataSource);
 
 con.connect((err) => {
   if (err) throw err;
-  console.log("Database Connected!");
+  console.log(`[${new Date().toLocaleString()}] Database Connected!`);
 });
 
 module.exports = con;
