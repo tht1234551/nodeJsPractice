@@ -89,4 +89,11 @@ router.get("/admin", (req, res) => {
     res.redirect(process.env.DB_ADMIN);
 });
 
+router.get('/template', function(req, res) {
+	res.render('index', {
+		eat: ['apple', 'orange', 'carot'],
+		sport: true
+	})
+})
+
 module.exports = router
