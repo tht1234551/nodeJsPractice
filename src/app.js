@@ -21,6 +21,9 @@ app.use(
 );
 
 // 라우터 세팅
+app.get('/', function (req, res) {
+  res.render('index');
+})
 app.use("/views", defaultRouter);
 app.use("/user", userRouter);
 
