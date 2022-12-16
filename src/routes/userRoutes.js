@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const service = require('../service/userService')
-const con = require('../configuration/db_connection');
+const con = require('../config/dataSource');
 
 router.get("/login", function (req, res) {
   res.render('user/login');

@@ -1,12 +1,13 @@
 const express = require("express");
 const app = express();
-const port = parseInt(process.env.PORT) || 80;
+const config = require('./config/config');
+const port = config.serverPort;
 const tl = require("express-tl");
 const path = require("path");
 const defaultRouter = require("./routes/defaultRoutes");
 const userRouter = require("./routes/userRoutes");
-const con = require("./configuration/db_connection");
-const mybatisSettings = require("./configuration/mybatisSettings");
+const con = require("./config/dataSource");
+const mybatisSettings = require("./config/mybatisSettings");
 
 mybatisSettings.readAllMapper();
 
@@ -21,9 +22,7 @@ app.use(
 );
 
 // 라우터 세팅
-app.get('/', function (req, res) {
-  res.render('index');
-})
+app.get('/', (req, res) => res.render('index'));
 app.use("/views", defaultRouter);
 app.use("/user", userRouter);
 

@@ -1,4 +1,4 @@
-const con = require("../configuration/db_connection");
+const con = require("../config/dataSource");
 const mybatisMapper = require("mybatis-mapper");
 
 function excuteQuery(sql, params, callback) {

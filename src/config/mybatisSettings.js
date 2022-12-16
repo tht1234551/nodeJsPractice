@@ -1,5 +1,5 @@
 const mybatisMapper = require("mybatis-mapper");
-const con  = require('./db_connection')
+const con  = require('./dataSource')
 const path = require("path");
 const fs = require("fs");
 
@@ -14,8 +14,8 @@ function readAllMapper() {
     });
 }
 
-function excuteQuery(sql, params, callback) {
-  let query = mybatisMapper.getStatement("userMapper", sql, params, {
+function excuteQuery(mapperName, sql, params, callback) {
+  let query = mybatisMapper.getStatement(mapperName, sql, params, {
     language: "sql",
     indent: "  ",
   });
