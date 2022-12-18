@@ -8,11 +8,13 @@
     "formidable": "^2.1.1",
     "fs": "0.0.1-security",
     "mybatis-mapper": "^0.6.8",
-    "mysql": "^2.18.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.20"
   },
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon --watch src/ index.js"
+    "dev": "nodemon -e tl,js --watch src/ index.js"
   }
 }
