@@ -4,8 +4,8 @@ const config = require('./config/config');
 const port = config.serverPort;
 const tl = require("express-tl");
 const path = require("path");
-const defaultRouter = require("./routes/defaultRoutes");
-const userRouter = require("./routes/userRoutes");
+const defaultRouter = require("./route/defaultRoutes");
+const userRouter = require("./route/userRoutes");
 const con = require("./config/dataSource");
 const mybatisSettings = require("./config/mybatisSettings");
 
