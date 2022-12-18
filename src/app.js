@@ -9,7 +9,6 @@ const userRouter = require("./route/userRoutes");
 const con = require("./config/dataSource");
 const mybatisSettings = require("./config/mybatisSettings");
 
-mybatisSettings.readAllMapper();
 
 // 템플릿 엔진 세팅
 app.engine("tl", tl);

@@ -1,21 +1,12 @@
-const con = require("../config/dataSource");
-const mybatisMapper = require("mybatis-mapper");
-
-function excuteQuery(sql, params, callback) {
-  let query = mybatisMapper.getStatement("userMapper", sql, params, {
-    language: "sql",
-    indent: "  ",
-  });
-    
-  console.log(query)
-
-  con.query(query, function (error, results, fields) {
-    if (error) throw error;
-    if (callback) callback(results, fields);
-  });
-}
+const sql = require('../util/sql');
+const userMapper = sql.getMapper("userMapper");
 
 module.exports = {
-  getNow: (callback, params) => excuteQuery("getNow", params, callback),
-  calc: (callback, params) => excuteQuery("calc", params, callback),
+  getNow: (callback, params) => userMapper("getNow", params, callback),
+  calc: (callback, params) => userMapper("calc", params, callback),
+  selectAll:()=>{},
+  select:()=>{},
+  insert:()=>{},
+  update:()=>{},
+  remove:()=>{},
 };
