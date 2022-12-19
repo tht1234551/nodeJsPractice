@@ -2,12 +2,13 @@ const express = require("express");
 const app = express();
 const config = require('./config/config');
 const port = config.serverPort;
-const tl = require("express-tl");
-const path = require("path");
-const defaultRouter = require("./route/defaultRoutes");
-const userRouter = require("./route/userRoutes");
 const con = require("./config/dataSource");
 const mybatisSettings = require("./config/mybatisSettings");
+const tl = require("express-tl");
+const path = require("path");
+const defaultRouter = require("./route/defaultRoute");
+const userRouter = require("./route/userRoute");
+
 
 
 // 템플릿 엔진 세팅
@@ -23,7 +24,7 @@ app.use(
 // 라우터 세팅
 app.get('/', (req, res) => res.render('index'));
 app.use("/views", defaultRouter);
-app.use("/user", userRouter);
+app.use("/users", userRouter);
 
 
 app.get("/admin", (req, res) => {

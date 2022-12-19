@@ -2,6 +2,11 @@ const mybatisMapper = require("mybatis-mapper");
 const con = require("../config/dataSource");
 
 
+/**
+ *
+ * @param {String} _mapperName
+ * @returns {(sql: String, params: Object, callback: (result: Array<Object>) => void) => void}
+ */
 function getMapper(_mapperName) {
     const mapperName = _mapperName;
 
@@ -11,7 +16,7 @@ function getMapper(_mapperName) {
 }
 
 function mybatis(mapperName, sql, params, callback) {
-    let query = mybatisMapper.getStatement(mapperName, sql, params, {
+    const query = mybatisMapper.getStatement(mapperName, sql, params, {
         language: "sql",
         indent: "  ",
     });
@@ -20,11 +25,12 @@ function mybatis(mapperName, sql, params, callback) {
 }
 
 function execute(query, callback) {
-    console.log(query)
+    console.log(`[${new Date().toLocaleString()}] Execute Query`);
+    console.log(query);
 
-    con.query(query, function (error, results, fields) {
+    con.query(query, function (error, results) {
         if (error) throw error;
-        if (callback) callback(results, fields);
+        if (callback) callback(results);
     });
 }
 
