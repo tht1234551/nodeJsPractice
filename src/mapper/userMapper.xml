@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="userMapper">
-    <select id="getNow">
-        select NOW() now
-    </select>
-
-    <select id="calc">
-        select 1 + 1
-    </select>
-
     <select id="selectAll">
         SELECT num, nick_name, email, password
         FROM USER
     </select>
 
     <select id="select">
-        SELECT num, nick_name, email, password
-        FROM USER
+        <include refid="selectAll"/>
         WHERE EMAIL = '${email}'
     </select>
 
     <insert id="insert">
-        INSERT INTO USER
-        VALUES (null,
+        INSERT INTO USER (nick_name,
+                          email,
+                          password)
+            VALUE (
                 '${nickName}',
                 '${email}',
                 '${password}')
     </insert>
+
+    <update id="update" parameterType="Array">
+        UPDATE USER
+        SET email    = 'bbb@naver.com'
+          , modifier = 'aaa'
+        WHERE email = '${email}'
+    </update>
 
     <delete id="delete">
         delete

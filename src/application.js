@@ -1,20 +1,16 @@
 const express = require("express");
 const app = express();
+global.app = app;
 const config = require('./config/config');
 const port = config.serverPort;
 const con = require("./config/dataSource");
 const mybatisSettings = require("./config/mybatisSettings");
-const tl = require("express-tl");
 const path = require("path");
 const defaultRouter = require("./route/defaultRoute");
 const userRouter = require("./route/userRoute");
+require("./config/viewEngine")
 
 
-
-// 템플릿 엔진 세팅
-app.engine("tl", tl);
-app.set("views", path.join(__dirname, "./views"));
-app.set("view engine", "tl");
 
 // 부트스트랩
 app.use(
