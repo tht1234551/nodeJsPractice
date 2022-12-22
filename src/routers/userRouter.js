@@ -1,16 +1,16 @@
-const express = require("express");
-const router = express.Router();
-const service = require('../service/userService')
+import express from "express";
+import service from "../services/userService.js"
 
-router.get("/login", function (req, res) {
-  res.render('user/login');
-});
+const router = express.Router();
 
 router.get("/:email", function (req, res) {
   service.select(req.params,(results) => {
-    res.json(results[0])
+    const user = results[0] || {};
+
+    res.json(user)
   });
 });
+
 router.get("/", function (req, res) {
   service.selectAll(null,(results) => {
     res.json(results)
@@ -32,6 +32,8 @@ router.put("/", function (req, res) {
   });
 });
 
+export default {
+  path : "/users",
+  router : router
+}
 
-
-module.exports = router;

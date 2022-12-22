@@ -8,7 +8,11 @@
 
     <select id="select">
         <include refid="selectAll"/>
-        WHERE EMAIL = '${email}'
+        <where>
+            <if test="email != null">
+                EMAIL = #{email}
+            </if>
+        </where>
     </select>
 
     <insert id="insert">
@@ -16,22 +20,22 @@
                           email,
                           password)
             VALUE (
-                '${nickName}',
-                '${email}',
-                '${password}')
+                #{nickName},
+                #{email},
+                #{password})
     </insert>
 
     <update id="update" parameterType="Array">
         UPDATE USER
         SET email    = 'bbb@naver.com'
           , modifier = 'aaa'
-        WHERE email = '${email}'
+        WHERE email = #{email}
     </update>
 
     <delete id="delete">
         delete
         FROM USER
-        WHERE email = '${email}'
+        WHERE email = #{email}
     </delete>
 
 </mapper>

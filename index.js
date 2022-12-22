@@ -1,1 +1,3 @@
-const app = require('./src/application')
+import application from "./src/application.js";
+
+application();

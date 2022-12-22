@@ -1,6 +1,7 @@
 {
   "name": "nodeJs",
   "version": "1.0.0",
+  "type": "module",
   "dependencies": {
     "axios": "^1.2.1",
     "bootstrap": "^5.2.3",
@@ -16,6 +17,6 @@
   },
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon -e tl,js --watch src/ index.js"
+    "dev": "nodemon -e tl,js,xml --watch src/ index.js"
   }
 }
