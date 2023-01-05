@@ -18,10 +18,6 @@ export default function () {
     routerSetting();
     staticFileSetting();
 
-    app.get("/", (req, res) => {
-        res.render('index')
-    });
-
     app.listen(config.serverPort, () => {
         console.log(`[${new Date().toLocaleString()}] app is running on PORT ${config.serverPort}`);
     });

@@ -3,6 +3,12 @@
   <head>
     <title>index template</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <script src="/axios.min.js"></script>
+
+    <!--  custom  -->
+    <script src="/resources/common.js"></script>
+
+
     <style>
       @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
 
@@ -310,5 +316,17 @@
     signInButton.addEventListener("click", () => {
       container.classList.remove("right-panel-active");
     });
+
+    /** @type {Axios} */
+    const axios = window['axios'];
+
+    axios.post('/auth/login', {
+      firstName: 'Fred',
+      lastName: 'Flintstone'
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+
   </script>
 </html>

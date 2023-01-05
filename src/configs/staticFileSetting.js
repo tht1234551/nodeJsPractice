@@ -2,8 +2,16 @@ import express from "express";
 import path from "path";
 
 export default function () {
-    app.use(
-        express.static(path.join(absolutePath, "../node_modules/bootstrap/dist/"))
-    );
+    const moduleFolder = "../node_modules/";
+    const staticModules = [
+        moduleFolder + "bootstrap/dist/",
+        moduleFolder + "axios/dist/",
+        "../static/"
+    ]
 
+    staticModules.forEach((module) => {
+        const fullPath = path.join(absolutePath, module)
+        console.log(fullPath)
+        app.use(express.static(fullPath));
+    });
 }
