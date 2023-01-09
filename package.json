@@ -16,7 +16,10 @@
     "nodemon": "^2.0.20"
   },
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon -e tl,js,xml --watch src/ index.js"
+    "start:server": "node server/server.js",
+    "dev:server": "nodemon -e tl,js,xml --watch server/ server/server.js",
+
+    "start:client": "react-scripts start",
+    "build:client": "react-scripts build"
   }
 }

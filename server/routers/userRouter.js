@@ -11,14 +11,12 @@ router.get("/", function (req, res) {
 
 router.get("/:email", function (req, res) {
   service.select(req.params,(results) => {
-    const user = results[0] || {};
-
-    res.json(user)
+    res.json(results[0])
   });
 });
 
 router.post("/", function (req, res) {
-  service.delete(req.params,(results) => {
+  service.insert(req.params,(results) => {
     res.json(results[0])
   });
 });
