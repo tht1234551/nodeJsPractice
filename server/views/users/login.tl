@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>index template</title>
+    <title>login template</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <script src="/axios.min.js"></script>
 
